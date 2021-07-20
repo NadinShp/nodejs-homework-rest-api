@@ -1,9 +1,10 @@
 const { contact: service } = require('../../services');
 
-const getById = async (req, res, next) => {
+const updateStatusContact = async (req, res, next) => {
   const { contactId } = req.params;
+  const { body } = req;
   try {
-    const result = await service.getById(contactId);
+    const result = await service.updateStatusContact(contactId, body);
     if (!result) {
       res.status(404).json({
         status: 'error',
@@ -12,7 +13,7 @@ const getById = async (req, res, next) => {
       });
     }
     res.json({
-      status: 'succes',
+      status: 'sucess',
       code: 200,
       data: {
         result,
@@ -23,4 +24,4 @@ const getById = async (req, res, next) => {
   }
 };
 
-module.exports = getById;
+module.exports = updateStatusContact;
