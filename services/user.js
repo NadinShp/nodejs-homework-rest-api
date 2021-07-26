@@ -1,6 +1,6 @@
 const { User } = require('../models');
 
-const findOne = filter => User.findOne(filter);
+const findUser = filter => User.findOne(filter);
 
 const addUser = ({ email, password }) => {
   const newUser = new User({ email });
@@ -20,11 +20,11 @@ const updateUser = async ( id, updateUserData ) => {
   }
 };
 
-const getById = (id) => User.findById(id);
+const findUserById = (id) => User.findById(id);
 
 module.exports = {
-  findOne,
+  findUser,
   addUser,
   updateUser,
-  getById
+  findUserById,
 };

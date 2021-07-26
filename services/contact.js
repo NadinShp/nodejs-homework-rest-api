@@ -1,8 +1,8 @@
 const { Contact } = require('../models');
 
-const listContact = () => {
-  return Contact.find({});
-};
+const listContact = (options) => {
+  return Contact.paginate({}, options);
+}
 
 const filteredListContact = (filter) => Contact.find(filter).exec();
 
