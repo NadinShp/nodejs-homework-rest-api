@@ -4,6 +4,8 @@ const listContact = () => {
   return Contact.find({});
 };
 
+const filteredListContact = (filter) => Contact.find(filter).exec();
+
 const getById = async id => {
   try {
     const result = await Contact.findById(id);
@@ -72,4 +74,5 @@ module.exports = {
   removeContact,
   updateContact,
   updateStatusContact,
+  filteredListContact,
 };
