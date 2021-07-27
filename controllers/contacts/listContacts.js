@@ -1,7 +1,6 @@
 const { contact: service } = require('../../services');
 
 const listContacts = async (req, res, next) => {
-  console.log(req.query);
   let result;
   try {
     if (req.query.favorite) {
