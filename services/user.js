@@ -22,7 +22,7 @@ const addUser = async ({ email, password }) => {
 
 const updateUser = async ( id, updateUserData ) => {
   try {
-    const result = User.findByIdAndUpdate( id, updateUserData, {new: true});
+    const result = await User.findByIdAndUpdate( id, updateUserData, {new: true});
     return result;
   } catch(error) {
     if (error.message.includes('Cast to ObjectId failed for value')){
@@ -34,7 +34,7 @@ const updateUser = async ( id, updateUserData ) => {
 
 const findUserById = async(id) =>  {
   try {
-    const result = User.findById(id);
+    const result = await User.findById(id);
     return result;
   } catch(error) {
     throw error;
