@@ -1,11 +1,23 @@
 const { User } = require('../models');
 
-const findUser = filter => User.findOne(filter);
+const findUser = async(filter) => {
+  try{
+    const result = await User.findOne(filter);
+    return result;
+  } catch(error) {
+    throw error;
+  }
+};
 
-const addUser = ({ email, password }) => {
-  const newUser = new User({ email });
-  newUser.setPassword(password);
-  return newUser.save();
+const addUser = async ({ email, password }) => {
+  try {
+    const newUser = new User({ email });
+    newUser.setPassword(password);
+    await newUser.save();
+    return newUser;
+  } catch(error) {
+    throw error
+  }
 };
 
 const updateUser = async ( id, updateUserData ) => {
@@ -20,7 +32,14 @@ const updateUser = async ( id, updateUserData ) => {
   }
 };
 
-const findUserById = (id) => User.findById(id);
+const findUserById = async(id) =>  {
+  try {
+    const result = User.findById(id);
+    return result;
+  } catch(error) {
+    throw error;
+  }
+}
 
 module.exports = {
   findUser,
