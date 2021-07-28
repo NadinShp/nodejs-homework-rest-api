@@ -1,13 +1,8 @@
 const { contact: service } = require('../../services');
 
 const listContacts = async (req, res, next) => {
-  let result;
   try {
-    if(req.query !== {}){
-    result = await service.filteredListContact(req.query);
-    } else {
-    result = await service.listContact();
-    }
+    const result = await service.listContact(req.query);
     res.json({
       status: 'success',
       code: 200,
@@ -17,7 +12,7 @@ const listContacts = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
-  }
-};
+    }
+}
 
 module.exports = listContacts;

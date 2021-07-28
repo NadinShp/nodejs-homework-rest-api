@@ -6,7 +6,7 @@ const { user: service } = require('../../services');
 const login = async (req, res, next) => {
   const { email, password } = req.body;
   try {
-    const user = await service.findOne({ email });
+    const user = await service.findUser({ email });
     if (!user || !user.comparePassword(password)) {
       res.status(401).json({
         status: '401 Unautorized',
