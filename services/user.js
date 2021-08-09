@@ -1,5 +1,6 @@
 const { User } = require('../models');
 const gravatar = require('gravatar');
+const {v4} = require('uuid');
 
 const findUser = async(filter) => {
   try{
@@ -12,8 +13,9 @@ const findUser = async(filter) => {
 
 const addUser = async ({ email, password }) => {
  const avatarURL = gravatar.profile_url(email, {s: '250', r: 'g'}, false);
+ const verifyToken = v4();
   try {
-    const newUser = new User({ email, avatarURL});
+    const newUser = new User({ email, avatarURL, verifyToken});
     newUser.setPassword(password);
     await newUser.save();
     return newUser;

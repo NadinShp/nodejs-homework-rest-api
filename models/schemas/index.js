@@ -5,6 +5,7 @@ const schemaAddContact = require('./schemaAddContact');
 const userSchema = require('./user');
 const schemaAddUser = require('./schemaAddUser');
 const schemaUpdateSubscription = require('./schemaUpdateSubscription');
+const schemaCheckEmail = require('./schemaCheckEmail');
 
 module.exports = {
   contactSchema,
@@ -14,4 +15,5 @@ module.exports = {
   userSchema,
   schemaAddUser,
   schemaUpdateSubscription,
+  schemaCheckEmail,
 };
