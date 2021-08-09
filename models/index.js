@@ -1,6 +1,6 @@
 const { Contact, schemas } = require('./contact');
 const { User, schemaAddUser } = require('./user');
-const {schemaUpdateSubscription} = require('./schemas');
+const {schemaUpdateSubscription, schemaCheckEmail} = require('./schemas');
 
 module.exports = {
   Contact,
@@ -8,4 +8,5 @@ module.exports = {
   User,
   schemaAddUser,
   schemaUpdateSubscription,
+  schemaCheckEmail,
 };
